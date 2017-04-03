@@ -1,0 +1,10 @@
+module local-nagios 1.0.2;
+
+require {
+	type nagios_script_t;
+	type nagios_spool_t;
+        class file { getattr open read };
+}
+
+#============= nagios_script_t ==============
+allow nagios_script_t nagios_spool_t:file { getattr open read };

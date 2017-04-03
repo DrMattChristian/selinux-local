@@ -1,0 +1,11 @@
+
+module local-chronyd 1.0.1;
+
+require {
+        type chronyd_t;
+        type adjtime_t;
+        class file { getattr open read };
+}
+
+#============= chronyd_t ==============
+allow chronyd_t adjtime_t:file { getattr open read };
