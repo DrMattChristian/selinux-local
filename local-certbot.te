@@ -1,0 +1,27 @@
+
+module local-certbot 1.0;
+
+require {
+	type var_log_t;
+	type httpd_config_t;
+	type init_var_lib_t;
+	type httpd_t;
+	type etc_runtime_t;
+	type etc_t;
+	type var_lib_t;
+	class file { getattr write };
+}
+
+#============= httpd_t ==============
+
+#!!!! WARNING: 'etc_runtime_t' is a base type.
+allow httpd_t etc_runtime_t:file write;
+
+#!!!! WARNING: 'etc_t' is a base type.
+allow httpd_t etc_t:file write;
+allow httpd_t httpd_config_t:file write;
+
+allow httpd_t init_var_lib_t:file { getattr write };
+
+allow httpd_t var_lib_t:file write;
+allow httpd_t var_log_t:file write;
