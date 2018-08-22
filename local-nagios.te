@@ -1,10 +1,16 @@
-module local-nagios 1.0.2;
+module local-nagios 1.0.4;
 
 require {
+	type nagios_etc_t;
 	type nagios_script_t;
 	type nagios_spool_t;
-        class file { getattr open read };
+	type nagios_t;
+	class file { getattr map open read };
 }
 
 #============= nagios_script_t ==============
-allow nagios_script_t nagios_spool_t:file { getattr open read };
+allow nagios_script_t nagios_spool_t:file { getattr map open read };
+allow nagios_script_t nagios_etc_t:file { getattr map open read };
+
+#================ nagios_t_ =================
+allow nagios_t nagios_etc_t:file { getattr map open read };
