@@ -1,0 +1,13 @@
+
+module local-iptables 1.0.0;
+
+require {
+        type iptables_t;
+        type denyhosts_var_lock_t;
+	type net_conf_t;
+        class file { append write };
+}
+
+#============= iptables_t ==============
+allow iptables_t denyhosts_var_lock_t:file write;
+allow iptables_t net_conf_t:file append;

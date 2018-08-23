@@ -1,0 +1,11 @@
+
+module local-mandb 1.0.0;
+
+require {
+        type mandb_t;
+        type mandb_cache_t;
+        class file { map };
+}
+
+#============= mandb_t ==============
+allow mandb_t mandb_cache_t:file map;

@@ -1,0 +1,11 @@
+
+module local-journal 1.0.0;
+
+require {
+        type syslogd_t;
+        type syslogd_var_run_t;
+        class file { map };
+}
+
+#============= syslogd_t ==============
+allow syslogd_t syslogd_var_run_t:file map;

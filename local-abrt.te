@@ -1,0 +1,11 @@
+
+module local-abrt 1.0.0;
+
+require {
+        type abrt_watch_log_t;
+        type var_log_t;
+        class file { map };
+}
+
+#============= abrt_watch_log_t ==============
+allow abrt_watch_log_t var_log_t:file map;
